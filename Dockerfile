@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY --from=development /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build:prod
 
 FROM nginx:stable
 COPY --from=build /app/dist/hr-talent /usr/share/nginx/html/
