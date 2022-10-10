@@ -9,6 +9,7 @@ jobs:
       IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APP_NAME }}:latest
       PROFILE_ACTIVE: prod
       APP_NAME: ${{ secrets.GCP_APP_NAME }}
+      API_URL: ${{ secrets.API_URL }}
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -33,4 +34,5 @@ jobs:
         run: |-
           gcloud compute instances update-container ${{ secrets.GCP_APP_NAME }} \
             --zone ${{ secrets.INSTANCE_ZONE}} \
-            --container-image $IMAGE_NAME
+            --container-image $IMAGE_NAME \
+            --container-env API_URL="$API_URL"
