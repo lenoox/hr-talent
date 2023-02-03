@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {JobOfferDetailsComponent} from "./job-offer-details/job-offer-details.component";
+import {JobOffersListComponent} from "./job-offers-list/job-offers-list.component";
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./job-offers/job-offers.module').then(m => m.JobOffersModule)
+    component: JobOffersListComponent,
   },
-
+  {
+    path:'details/:id',
+    component: JobOfferDetailsComponent
+  },
+  {
+    path:'apply/:id',
+    component: JobOfferDetailsComponent
+  }
 ];
 
 @NgModule({
