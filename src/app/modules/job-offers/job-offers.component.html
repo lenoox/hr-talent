@@ -1,3 +1,11 @@
-<ul >
-  <li *ngFor="let jobOffer of jobOffersData; let i = index">{{jobOffer.jobDescription}}</li>
-</ul>
+<app-table
+  [tableData]="jobOffers$"
+  [url]="'/job-offers'"
+  [editModeElement]="true"
+  [deleteModeElement]="true"
+  [columnHeader]="columnHeader"
+  [(currentPage)]="currentPage"
+  [(pageSize)]="pageSize"
+  (pageChange)="pageChanged()"
+  (deleteChange)="deleteChanged($event)"
+></app-table>
