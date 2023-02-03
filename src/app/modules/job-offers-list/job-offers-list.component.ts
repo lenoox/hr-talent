@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {DeleteJobOffer, GetJobOffers} from "../../core/state/job-offer/job-offer.action";
-import {Paginated} from "../../core/state/paginated";
+import {Component, OnInit} from '@angular/core';
+import {JobOfferResponse} from "../../core/state/job-offer/job-offer";
+import {Observable} from "rxjs";
 import {Select, Store} from "@ngxs/store";
 import {JobOfferState} from "../../core/state/job-offer/job-offer.state";
-import {Observable} from "rxjs";
-import {JobOfferResponse} from "../../core/state/job-offer/job-offer";
+import {DeleteJobOffer, GetJobOffers} from "../../core/state/job-offer/job-offer.action";
+import {Paginated} from "../../core/state/paginated";
 
 @Component({
-  selector: 'app-job-offers',
-  templateUrl: './job-offers.component.html',
-  styleUrls: ['./job-offers.component.scss']
+  selector: 'app-job-offers-list',
+  templateUrl: './job-offers-list.component.html',
+  styleUrls: ['./job-offers-list.component.scss']
 })
-export class JobOffersComponent implements OnInit {
+export class JobOffersListComponent implements OnInit {
   @Select(JobOfferState.getJobOfferList) jobOffers$!: Observable<Paginated<JobOfferResponse[]>>
   columnHeader = {
     nr: 'nr',
@@ -41,3 +41,4 @@ export class JobOffersComponent implements OnInit {
     return this.store.dispatch(new GetJobOffers(this.pageSize,this.currentPage))
   }
 }
+

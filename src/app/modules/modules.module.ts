@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModulesRoutingModule } from './modules-routing.module';
-import {JobOffersModule} from "./job-offers/job-offers.module";
+import {JobOffersListComponent} from "./job-offers-list/job-offers-list.component";
+import {JobOfferDetailsComponent} from "./job-offer-details/job-offer-details.component";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
-  declarations: [],
+  declarations: [JobOffersListComponent,JobOfferDetailsComponent],
   imports: [
     CommonModule,
     ModulesRoutingModule,
-    JobOffersModule
+    SharedModule
   ]
 })
 export class ModulesModule { }
