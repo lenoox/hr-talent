@@ -1,31 +1,18 @@
-<div *ngIf="jobOffer$ | async; let jobOffer" class="job-offer">
-  <div
-    [style.background-image]="
-      'url(../../../assets/images/' + jobOfferBackground + ')'
-    "
-    class="job-offer-header flex flex-direction-column flex-justify-center flex-align-center">
-    <h2 class="job-offer-title">{{ jobOffer.position }}</h2>
-    <div>
-      <ng-container
-        *ngFor="let seniority of jobOffer?.seniorities; let last = last">
-        {{ seniority?.name }}{{ last ? '' : ', ' }}
-      </ng-container>
+<div class="job-offer">
+  <app-job-offer-header></app-job-offer-header>
+  <ng-container *ngIf="jobOffer$ | async; let jobOffer">
+    <p class="job-offer-description">
+      <app-text-preview [description]="jobOffer.offerDescription"></app-text-preview>
+    </p>
+    <div
+      class="flex flex-direction-column flex-align-center">
+      <button
+        class="job-offer-action"
+        mat-flat-button
+        color="primary"
+        [routerLink]="['/apply',jobOffer.id]">
+        Aplikuj
+      </button>
     </div>
-    <div>
-      <ng-container
-        *ngFor="let location of jobOffer?.locations; let last = last">
-        {{ location?.name }}{{ last ? '' : ', ' }}
-      </ng-container>
-    </div>
-  </div>
-  <p class="job-offer-description">{{ jobOffer.offerDescription }}</p>
-  <div class="flex flex-direction-column flex-align-center">
-    <button
-      class="job-offer-action"
-      mat-flat-button
-      color="primary"
-      [routerLink]="['/apply', jobOffer.id]">
-      Aplikuj
-    </button>
-  </div>
+  </ng-container>
 </div>
