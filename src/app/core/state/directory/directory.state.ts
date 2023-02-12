@@ -1,10 +1,10 @@
-import {Action, Selector, State, StateContext} from "@ngxs/store";
-import {forkJoin, tap} from "rxjs";
-import { GetDirectory} from "./directory.action";
-import {Injectable} from "@angular/core";
-import {Seniority} from "../seniority";
-import {Location} from "../location";
-import {DirectoryService} from "../../services/directory.service";
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { forkJoin, tap } from 'rxjs';
+import { GetDirectory } from './directory.action';
+import { Injectable } from '@angular/core';
+import { Seniority } from '../seniority';
+import { Location } from '../location';
+import { DirectoryService } from '../../services/directory.service';
 
 export class DirectoriesStateModel {
   seniorities!: Seniority[];
@@ -15,36 +15,36 @@ export class DirectoriesStateModel {
   defaults: {
     seniorities: [],
     locations: [],
-  }
+  },
 })
 @Injectable()
 export class DirectoryState {
-  constructor(private directoryService: DirectoryService) {
-  }
+  constructor(private directoryService: DirectoryService) {}
 
   @Selector()
-  static getSeniorities(state: DirectoriesStateModel){
+  static getSeniorities(state: DirectoriesStateModel) {
     return state.seniorities;
   }
 
   @Selector()
-  static getLocations(state: DirectoriesStateModel){
+  static getLocations(state: DirectoriesStateModel) {
     return state.locations;
   }
 
   @Action(GetDirectory)
-  getDirectories({getState,setState}: StateContext<DirectoriesStateModel>){
+  getDirectories({ getState, setState }: StateContext<DirectoriesStateModel>) {
     return forkJoin([
       this.directoryService.fetchSeniorities(),
-      this.directoryService.fetchLocations()
+      this.directoryService.fetchLocations(),
     ]).pipe(
-      tap(([seniorities,locations]: any)=>{
-      const state = getState();
-      setState({
-        ...state,
-        seniorities: seniorities,
-        locations: locations,
+      tap(([seniorities, locations]: any) => {
+        const state = getState();
+        setState({
+          ...state,
+          seniorities: seniorities,
+          locations: locations,
+        });
       })
-    }))
+    );
   }
 }

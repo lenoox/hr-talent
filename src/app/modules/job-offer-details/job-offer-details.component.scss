@@ -1,19 +1,21 @@
-.job-offer{
-  width: 100%;
+.job-offer {
   height: 100vh;
-}
-.job-offer-header{
   width: 100%;
-  height: 210px;
 }
-.job-offer-title{
+
+.job-offer-header {
+  height: 210px;
+  width: 100%;
+}
+
+.job-offer-title {
   margin-bottom: 0;
 }
 
-.job-offer-description{
-  margin: 30px 0 50px 0;
+.job-offer-description {
+  margin: 30px 0 50px;
 }
 
-.job-offer-action{
+.job-offer-action {
   width: 240px;
 }
