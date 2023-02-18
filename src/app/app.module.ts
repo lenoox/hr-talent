@@ -2,20 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ModulesModule} from "./modules/modules.module";
-import {CoreModule} from "./core/core.module";
+import { ModulesModule } from './modules/modules.module';
+import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {JobOfferState} from "./core/state/job-offer/job-offer.state";
-import {DirectoryState} from "./core/state/directory/directory.state";
-import {NgxsModule} from "@ngxs/store";
-import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
-import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
-import {SharedModule} from "./shared/shared.module";
+import { JobOfferState } from './core/state/job-offer/job-offer.state';
+import { DirectoryState } from './core/state/directory/directory.state';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +26,6 @@ import {SharedModule} from "./shared/shared.module";
     SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
