@@ -1,4 +1,4 @@
-import {Location} from "../location";
+import { Location } from '../location';
 
 export interface CandidateRequest {
   id: string;
@@ -15,7 +15,7 @@ export interface CandidateResponse {
   name?: string;
   firstName: string;
   lastName: string;
-  locations: Location
+  locations: Location;
   position: string;
   attachment: string;
   aboutMe: string;

@@ -2,15 +2,15 @@
   <app-job-offer-header></app-job-offer-header>
   <ng-container *ngIf="jobOffer$ | async; let jobOffer">
     <p class="job-offer-description">
-      <app-text-preview [description]="jobOffer.offerDescription"></app-text-preview>
+      <app-text-preview
+        [description]="jobOffer.offerDescription"></app-text-preview>
     </p>
-    <div
-      class="flex flex-direction-column flex-align-center">
+    <div class="flex flex-direction-column flex-align-center">
       <button
         class="job-offer-action"
         mat-flat-button
         color="primary"
-        [routerLink]="['/apply',jobOffer.id]">
+        [routerLink]="['/apply', jobOffer.id]">
         Aplikuj
       </button>
     </div>

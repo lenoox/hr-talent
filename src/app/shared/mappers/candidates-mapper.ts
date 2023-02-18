@@ -1,4 +1,4 @@
-export function candidateFormToReqest(candidateRequest:any): any {
+export function candidateFormToReqest(candidateRequest: any): any {
   const formData = new FormData();
   formData.append('firstName', candidateRequest.firstName);
   formData.append('lastName', candidateRequest.lastName);

@@ -1,7 +1,6 @@
-import {CandidateRequest} from "./candidate";
+import { CandidateRequest } from './candidate';
 
 export class AddCandidate {
-  static readonly type = '[Candidate] Update candidate'
-  constructor(public payload: CandidateRequest, public id: string){
-  }
+  static readonly type = '[Candidate] Update candidate';
+  constructor(public payload: CandidateRequest, public id: string) {}
 }
