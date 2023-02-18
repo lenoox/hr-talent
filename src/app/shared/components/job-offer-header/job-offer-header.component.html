@@ -1,0 +1,21 @@
+<ng-container *ngIf="jobOffer$ | async; let jobOffer">
+  <div
+    [style.background-image]="
+      'url(../../../assets/images/' + jobOfferBackground + ')'
+    "
+    class="job-offer-header flex flex-direction-column flex-justify-center flex-align-center">
+    <h2 class="job-offer-title">{{ jobOffer.position }}</h2>
+    <div>
+      <ng-container
+        *ngFor="let seniority of jobOffer?.seniorities; let last = last">
+        {{ seniority?.name }}{{ last ? '' : ', ' }}
+      </ng-container>
+    </div>
+    <div>
+      <ng-container
+        *ngFor="let location of jobOffer?.locations; let last = last">
+        {{ location?.name }}{{ last ? '' : ', ' }}
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

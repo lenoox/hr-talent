@@ -6,8 +6,15 @@ import { RouterLink } from '@angular/router';
 import { IsRoute } from './pipes/route.pipe';
 import { IsArrayPipe } from './pipes/is-array.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { JobOfferHeaderComponent } from './components/job-offer-header/job-offer-header.component';
+import { TextPreviewComponent } from './components/text-preview/text-preview.component';
 
-const COMPONENTS = [TableComponent, NavbarComponent];
+const COMPONENTS = [
+  TableComponent,
+  NavbarComponent,
+  TextPreviewComponent,
+  JobOfferHeaderComponent,
+];
 const PIPES = [IsArrayPipe, IsRoute];
 const MODULES = [CommonModule, AngularMaterialModule, RouterLink];
 

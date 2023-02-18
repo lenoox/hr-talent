@@ -18,8 +18,6 @@ export class JobOfferDetailsComponent implements OnInit {
   jobOffer!: JobOfferResponse;
   routeId!: Subscription;
   jobOfferForm: any;
-  jobOfferBackground = 'job-offer-bg.png';
-
   constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {

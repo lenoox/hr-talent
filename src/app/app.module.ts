@@ -11,6 +11,7 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { SharedModule } from './shared/shared.module';
+import { CandidateState } from './core/state/candidate/candidate.state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
     ModulesModule,
     CoreModule,
     BrowserAnimationsModule,
-    NgxsModule.forRoot([JobOfferState, DirectoryState]),
+    NgxsModule.forRoot([JobOfferState, CandidateState, DirectoryState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     SharedModule,
