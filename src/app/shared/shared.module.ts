@@ -8,6 +8,7 @@ import { IsArrayPipe } from './pipes/is-array.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { JobOfferHeaderComponent } from './components/job-offer-header/job-offer-header.component';
 import { TextPreviewComponent } from './components/text-preview/text-preview.component';
+import { QuillViewComponent } from 'ngx-quill';
 
 const COMPONENTS = [
   TableComponent,
@@ -16,7 +17,12 @@ const COMPONENTS = [
   JobOfferHeaderComponent,
 ];
 const PIPES = [IsArrayPipe, IsRoute];
-const MODULES = [CommonModule, AngularMaterialModule, RouterLink];
+const MODULES = [
+  CommonModule,
+  AngularMaterialModule,
+  RouterLink,
+  QuillViewComponent,
+];
 
 @NgModule({
   declarations: [...COMPONENTS, ...PIPES],
