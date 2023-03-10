@@ -13,20 +13,23 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { SharedModule } from './shared/shared.module';
 import { CandidateState } from './core/state/candidate/candidate.state';
 
+const STATES = [JobOfferState, CandidateState, DirectoryState];
+const COMPONENTS = [AppComponent];
+const MODULES = [
+  BrowserModule,
+  AppRoutingModule,
+  ModulesModule,
+  CoreModule,
+  BrowserAnimationsModule,
+  NgxsModule.forRoot([...STATES]),
+  NgxsReduxDevtoolsPluginModule.forRoot(),
+  NgxsLoggerPluginModule.forRoot(),
+  SharedModule,
+];
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ModulesModule,
-    CoreModule,
-    BrowserAnimationsModule,
-    NgxsModule.forRoot([JobOfferState, CandidateState, DirectoryState]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
-    SharedModule,
-  ],
+  declarations: [...COMPONENTS],
+  imports: [...MODULES],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [...COMPONENTS],
 })
 export class AppModule {}

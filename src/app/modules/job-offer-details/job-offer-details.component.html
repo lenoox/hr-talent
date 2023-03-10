@@ -1,10 +1,10 @@
 <div class="job-offer">
   <app-job-offer-header></app-job-offer-header>
   <ng-container *ngIf="jobOffer$ | async; let jobOffer">
-    <p class="job-offer-description">
-      <app-text-preview
-        [description]="jobOffer.offerDescription"></app-text-preview>
-    </p>
+    <app-text-preview
+      class="job-offer-description"
+      [description]="jobOffer.offerDescription">
+    </app-text-preview>
     <div class="flex flex-direction-column flex-align-center">
       <button
         class="job-offer-action"

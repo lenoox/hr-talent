@@ -23,10 +23,9 @@ const MODULES = [
   RouterLink,
   QuillViewComponent,
 ];
-
 @NgModule({
   declarations: [...COMPONENTS, ...PIPES],
   imports: [...MODULES],
-  exports: [...MODULES, ...COMPONENTS],
+  exports: [...MODULES, ...COMPONENTS, ...PIPES],
 })
 export class SharedModule {}
