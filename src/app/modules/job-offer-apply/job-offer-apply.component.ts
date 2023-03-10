@@ -16,7 +16,6 @@ import { AddCandidate } from '../../core/state/candidate/candidate.action';
 import { Location } from '../../core/state/location';
 import { compareWith } from '../../core/utils/compare.utils';
 import { CandidateRequest } from '../../core/state/candidate/candidate';
-import { candidateFormToReqest } from '../../shared/mappers/candidates-mapper';
 import { CandidateState } from '../../core/state/candidate/candidate.state';
 import { DirectoryState } from '../../core/state/directory/directory.state';
 import { Seniority } from '../../core/state/seniority';
