@@ -24,7 +24,9 @@ import { NotificationService } from '../../core/services/notification.service';
 import { GetJobOffer } from '../../core/state/job-offer/job-offer.action';
 import { JobOfferState } from '../../core/state/job-offer/job-offer.state';
 import { JobOfferResponse } from '../../core/state/job-offer/job-offer';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-job-offer-apply',
   templateUrl: './job-offer-apply.component.html',
@@ -51,6 +53,7 @@ export class JobOfferApplyComponent implements OnInit {
   ngOnInit(): void {
     this.routeId = this.route?.params
       .pipe(
+        untilDestroyed(this),
         tap(params => {
           this.jobOfferId = params['id'];
         }),
@@ -79,6 +82,9 @@ export class JobOfferApplyComponent implements OnInit {
   get locations() {
     return this.jobOfferForm.get('locations');
   }
+  get attachment() {
+    return this.jobOfferForm.get('attachment');
+  }
 
   compareJobOffer(firstObject: any, secondObject: any): boolean {
     return compareWith(firstObject, secondObject);
@@ -87,7 +93,10 @@ export class JobOfferApplyComponent implements OnInit {
   onSubmit(data: CandidateRequest) {
     this.store
       .dispatch(new AddCandidate(data, this.jobOfferId))
-      .pipe(mergeMap(() => combineLatest([this.candidate$, this.jobOffer$])))
+      .pipe(
+        untilDestroyed(this),
+        mergeMap(() => combineLatest([this.candidate$, this.jobOffer$]))
+      )
       .subscribe(([candidate, jobOffer]) => {
         this.notificationService.notify(
           `${candidate.firstName}, aplikowałeś na ofertę ${jobOffer.position}`

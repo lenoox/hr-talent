@@ -1,0 +1,3 @@
+@function calc-width-with-gap($columns, $gap) {
+  @return calc((100% / $columns) - $gap + ($gap / $columns));
+}

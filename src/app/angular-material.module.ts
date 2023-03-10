@@ -13,7 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-const materialModules = [
+const MATERIAL_MODULES = [
   MatButtonModule,
   MatSidenavModule,
   MatTableModule,
@@ -29,7 +29,7 @@ const materialModules = [
   MatPaginatorModule,
 ];
 @NgModule({
-  imports: [CommonModule, ...materialModules],
-  exports: [...materialModules],
+  imports: [...MATERIAL_MODULES],
+  exports: [...MATERIAL_MODULES],
 })
 export class AngularMaterialModule {}

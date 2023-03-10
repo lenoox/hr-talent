@@ -20,10 +20,10 @@ export class JobOffersListComponent implements OnInit {
   >;
   columnHeader = {
     nr: 'nr',
-    position: 'position',
-    seniorities: 'seniorities',
-    locations: 'locations',
-    actions: 'actions',
+    position: 'Tytuł oferty',
+    seniorities: 'Poziom doświadczenia',
+    locations: 'Lokalizaja',
+    actions: 'Akcja',
   };
   pageSize = 5;
   currentPage = 0;

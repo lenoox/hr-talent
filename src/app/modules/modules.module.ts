@@ -8,18 +8,20 @@ import { JobOfferApplyComponent } from './job-offer-apply/job-offer-apply.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuillViewComponent } from 'ngx-quill';
 
+const COMPONENTS = [
+  JobOffersListComponent,
+  JobOfferDetailsComponent,
+  JobOfferApplyComponent,
+];
+const MODULES = [
+  CommonModule,
+  ModulesRoutingModule,
+  SharedModule,
+  ReactiveFormsModule,
+  QuillViewComponent,
+];
 @NgModule({
-  declarations: [
-    JobOffersListComponent,
-    JobOfferDetailsComponent,
-    JobOfferApplyComponent,
-  ],
-  imports: [
-    CommonModule,
-    ModulesRoutingModule,
-    SharedModule,
-    ReactiveFormsModule,
-    QuillViewComponent,
-  ],
+  declarations: [...COMPONENTS],
+  imports: [...MODULES],
 })
 export class ModulesModule {}

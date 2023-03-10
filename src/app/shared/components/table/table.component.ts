@@ -11,7 +11,9 @@ import { Observable, tap } from 'rxjs';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Paginated } from '../../../core/state/paginated';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -50,6 +52,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   loadData() {
     this.tableData
       .pipe(
+        untilDestroyed(this),
         tap((data: any) => {
           this.dataSource = new MatTableDataSource(data?.items);
         })
