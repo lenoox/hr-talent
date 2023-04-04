@@ -1,6 +1,9 @@
 FROM node:lts-bullseye-slim as development
 WORKDIR /app
 
+ARG api_url # you could give this a default value as well
+ENV API_URL=$api_url
+
 RUN npm install -g npm
 COPY package*.json ./
 RUN npm ci
