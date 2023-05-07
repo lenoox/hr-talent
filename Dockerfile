@@ -1,7 +1,7 @@
 FROM node:lts-bullseye-slim as development
 WORKDIR /app
 
-ARG api_url # you could give this a default value as well
+ARG api_url
 ENV API_URL=$api_url
 
 RUN npm install -g npm
