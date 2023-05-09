@@ -1,15 +1,14 @@
 FROM node:lts-bullseye-slim as development
 WORKDIR /app
 
-ARG api_url
-ENV API_URL=$api_url
-
 RUN npm install -g npm
 COPY package*.json ./
 RUN npm ci
 COPY . .
 
 FROM node:lts-bullseye-slim as build
+ARG api_url
+ENV API_URL=$api_url
 WORKDIR /app
 RUN npm install -g npm
 COPY package*.json ./
