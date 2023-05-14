@@ -14,7 +14,7 @@ const setEnv = () => {
   console.log(
     'The file `environment.ts` will be written with the following content: \n'
   );
-  console.log(process.env['API_URL']);
+  console.log(`URL: ${process.env['API_URL']} \n`);
   writeFile(targetPath, envConfigFile, (err: any) => {
     if (err) {
       console.error(err);
