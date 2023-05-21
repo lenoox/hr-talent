@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4200",
     "build": "ng build",
+    "start:dev": "run-s config start",
     "build:prod": "run-s config build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

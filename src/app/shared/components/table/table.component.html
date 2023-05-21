@@ -36,7 +36,7 @@
           </th>
           <td mat-cell *matCellDef="let element">
             <mat-icon
-              [routerLink]="[url, 'details', element.id]"
+              [routerLink]="['details', element.id]"
               aria-hidden="false"
               aria-label="Pokaż"
               fontIcon="visibility"></mat-icon>

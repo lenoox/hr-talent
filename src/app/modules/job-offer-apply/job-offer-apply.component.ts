@@ -94,13 +94,13 @@ export class JobOfferApplyComponent implements OnInit {
       .dispatch(new AddCandidate(data, this.jobOfferId))
       .pipe(
         untilDestroyed(this),
+        tap(() => this.router.navigate(['/'])),
         mergeMap(() => combineLatest([this.candidate$, this.jobOffer$]))
       )
       .subscribe(([candidate, jobOffer]) => {
         this.notificationService.notify(
           `${candidate.firstName}, aplikowałeś na ofertę ${jobOffer.position}`
         );
-        this.router.navigate(['/']);
       });
   }
 
