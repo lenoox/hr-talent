@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'undefined',
-  appVersion: '0.0.0',
   production: true,
+  apiUrl: 'http://localhost:3000/public',
+  appVersion: '1.0.0',
 };

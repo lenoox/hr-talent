@@ -1,7 +1,8 @@
 services:
   www:
+    container_name: hr-talent-www
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.local
       context: .
       target: development
     volumes:
